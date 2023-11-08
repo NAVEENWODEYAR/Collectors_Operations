@@ -85,7 +85,7 @@ public class EmployeeImpl
 	
 	**/
 	// 10. How many male and female employees are there in the sales and marketing team?
-							employeeList.parallelStream().filter(emp -> emp.getDepartment().equalsIgnoreCase("sales and marketing")).collect(Collectors.groupingBy(Employee::getDepartment,Collectors.counting())).entrySet().forEach(System.out::println);
+							employeeList.parallelStream().filter(emp -> emp.getDepartment().equalsIgnoreCase("sales and marketing")).collect(Collectors.groupingBy(Employee::getGender,Collectors.counting())).entrySet().forEach(System.out::println);
 							
 	
 	}
