@@ -75,10 +75,13 @@ public class EmployeeImpl
 	// 7. What is the average salary of each department?
 							employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment,Collectors.averagingDouble(Employee::getSalary))).entrySet().forEach(System.out::println);
 	
-	**/
+	
 	// 8. Get the details of youngest male employee in the product development department?
 							employeeList.parallelStream().filter(emp ->emp.getDepartment().equalsIgnoreCase("product development")).min(Comparator.comparingInt(Employee::getAge)).ifPresent(System.out::println);
 		
+	**/
+	//9. Who has the most working experience in the organization?
+							employeeList.parallelStream().sorted(Comparator.comparingInt(Employee::getYearOfJoining)).findFirst().ifPresent(System.out::println);
 	}
 
 }
