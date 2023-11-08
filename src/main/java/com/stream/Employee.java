@@ -67,7 +67,17 @@ public class Employee
 		{
 			this.salary = salary;
 		}
+		
+		// toString().,
+		@Override
+		public String toString() 
+		{
+			return "Employee [id=" + id + ", name=" + name + ", age=" + age + ", gender=" + gender + ", department="
+					+ department + ", yearOfJoining=" + yearOfJoining + ", salary=" + salary + "]";
+		}
 	    
+		
+		
     
      
 }
