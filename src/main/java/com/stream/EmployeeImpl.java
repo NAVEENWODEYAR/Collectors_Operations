@@ -59,7 +59,7 @@ public class EmployeeImpl
 														.get();
 											System.out.println(highestPaidEmp);
 										
-	   // 5.Get the names of all employees who have joined after 2015?
+	   // 5. Get the names of all employees who have joined after 2015?
 							employeeList.stream()
 										.filter(emp -> emp.getYearOfJoining() >= 2015).map(Employee::getName)
 										.forEach(System.out::println);
@@ -70,9 +70,15 @@ public class EmployeeImpl
 	  									.entrySet()
 	  									.forEach(System.out::println);
 	
-	 **/
+	 
 	// 7. What is the average salary of each department?
 							employeeList.stream().collect(Collectors.groupingBy(Employee::getDepartment,Collectors.averagingDouble(Employee::getSalary))).entrySet().forEach(System.out::println);
+	
+	**/
+	// 8. Get the details of youngest male employee in the product development department?
+							employeeList.parallelStream().filter(emp -> emp.getDepartment().equalsIgnoreCase("Product Development")).sorted().findFirst().ifPresent(System.out::println);
+		
+		
 	}
 
 }
