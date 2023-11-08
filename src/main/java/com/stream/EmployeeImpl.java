@@ -79,9 +79,15 @@ public class EmployeeImpl
 	// 8. Get the details of youngest male employee in the product development department?
 							employeeList.parallelStream().filter(emp ->emp.getDepartment().equalsIgnoreCase("product development")).min(Comparator.comparingInt(Employee::getAge)).ifPresent(System.out::println);
 		
-	**/
-	//9. Who has the most working experience in the organization?
+	
+	// 9. Who has the most working experience in the organization?
 							employeeList.parallelStream().sorted(Comparator.comparingInt(Employee::getYearOfJoining)).findFirst().ifPresent(System.out::println);
+	
+	**/
+	// 10. How many male and female employees are there in the sales and marketing team?
+							employeeList.parallelStream().filter(emp -> emp.getDepartment().equalsIgnoreCase("sales and marketing")).collect(Collectors.groupingBy(Employee::getDepartment,Collectors.counting())).entrySet().forEach(System.out::println);
+							
+	
 	}
 
 }
