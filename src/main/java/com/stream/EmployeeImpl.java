@@ -111,14 +111,37 @@ public class EmployeeImpl
 							}
 	
 	
-	**/
+	
 	// What is the average salary and total salary of the whole organization?
 			DoubleSummaryStatistics salaryStatistics = employeeList.stream().collect(Collectors.summarizingDouble(Employee::getSalary));
-			System.out.println("\n Average salary in the organization:- "+salaryStatistics.getAverage());	
-			System.out.println("\n Maximun salary in the organization:- "+salaryStatistics.getMax());
-			System.out.println("\n Minimum salary in the organization:- "+salaryStatistics.getMin());
-			System.out.println("\n Total salary in the organization:- "+salaryStatistics.getSum());
-			System.out.println("\n Total employess in the organization:- "+salaryStatistics.getSum());
+					System.out.println("\n Average salary in the organization:- "+salaryStatistics.getAverage());	
+					System.out.println("\n Maximum salary in the organization:- "+salaryStatistics.getMax());
+					System.out.println("\n Minimum salary in the organization:- "+salaryStatistics.getMin());
+					System.out.println("\n Total salary in the organization:- "+salaryStatistics.getSum());
+					System.out.println("\n Total employess in the organization:- "+salaryStatistics.getSum());
+			
+	**/
+	// 14 : Separate the employees who are younger or equal to 25 years from those employees who are older than 25 years.
+				Map<Boolean, List<Employee>> empWithAge = employeeList.stream().collect(Collectors.partitioningBy(emp->emp.getAge() >= 25));
+				
+				for(Map.Entry<Boolean, List<Employee>> emp : empWithAge.entrySet())
+				{
+					System.out.println("\n **********");
+					if(emp.getKey())
+					{
+						System.out.println("\n Employees below 25 years");
+					}
+					else
+					{
+						System.out.println("\n Employees below 25 years");
+					}
+					
+					List<Employee> list = emp.getValue();
+					for(Employee e: list)
+					{
+						System.out.println(e.getName()+"&"+e.getAge());
+					}
+				}
 	
 	}
 
