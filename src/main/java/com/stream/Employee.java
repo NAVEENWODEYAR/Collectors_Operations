@@ -68,6 +68,25 @@ public class Employee
 			this.salary = salary;
 		}
 		
+		// default constructor.,
+		public Employee()
+		{
+			
+		}
+		
+		// parameterized constructor,
+		public Employee(int id, String name, int age, String gender, String department, int yearOfJoining,
+				double salary) 
+		{
+			super();
+			this.id = id;
+			this.name = name;
+			this.age = age;
+			this.gender = gender;
+			this.department = department;
+			this.yearOfJoining = yearOfJoining;
+			this.salary = salary;
+		}
 		// toString().,
 		@Override
 		public String toString() 
