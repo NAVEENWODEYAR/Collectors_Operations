@@ -87,9 +87,27 @@ public class EmployeeImpl
 	// 10. How many male and female employees are there in the sales and marketing team?
 							employeeList.parallelStream().filter(emp -> emp.getDepartment().equalsIgnoreCase("sales and marketing")).collect(Collectors.groupingBy(Employee::getGender,Collectors.counting())).entrySet().forEach(System.out::println);
 							
-	**/
+	
 	// 11. What is the average salary of male and female employees?
 							employeeList.parallelStream().collect(Collectors.groupingBy(Employee::getDepartment,Collectors.averagingDouble(Employee::getSalary))).entrySet().forEach(System.out::println);
+	
+	
+	**/
+	// 12 : List down the names of all employees in each department?
+							Map<String, List<Employee>> empList = employeeList.parallelStream().collect(Collectors.groupingBy(Employee::getDepartment));
+							
+							for(Map.Entry<String, List<Employee>>emp:empList.entrySet())
+							{
+								System.out.println("\n ******** ");
+								System.out.println("\n Employees In :"+emp.getKey());
+								System.out.println("\n ******** ");
+								
+								List<Employee> em = emp.getValue();
+									for(Employee e: em)
+									{
+										System.out.println(e.getName());
+									}
+							}
 	
 	
 	}
