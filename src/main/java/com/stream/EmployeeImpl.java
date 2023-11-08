@@ -120,8 +120,8 @@ public class EmployeeImpl
 					System.out.println("\n Total salary in the organization:- "+salaryStatistics.getSum());
 					System.out.println("\n Total employess in the organization:- "+salaryStatistics.getSum());
 			
-	**/
-	// 14 : Separate the employees who are younger or equal to 25 years from those employees who are older than 25 years.
+	
+	// 14 . Separate the employees who are younger or equal to 25 years from those employees who are older than 25 years.
 				Map<Boolean, List<Employee>> empWithAge = employeeList.stream().collect(Collectors.partitioningBy(emp->emp.getAge() >= 25));
 				
 				for(Map.Entry<Boolean, List<Employee>> emp : empWithAge.entrySet())
@@ -143,6 +143,10 @@ public class EmployeeImpl
 					}
 				}
 	
+	**/
+	// 15. Who is the oldest employee in the organization? What is his age and which department he belongs to?
+						Employee seniorMost = employeeList.stream().max(Comparator.comparingInt(Employee::getAge)).get();
+						System.out.println(seniorMost.getAge()+"&"+seniorMost.getName());
 	}
 
 }
