@@ -29,11 +29,19 @@ public class EmployeeImpl
 		employeeList.add(new Employee(255, "Ali Baig", 23, "Male", "Infrastructure", 2018, 12700.0));
 		employeeList.add(new Employee(266, "Sanvi Pandey", 26, "Female", "Product Development", 2015, 28900.0));
 		employeeList.add(new Employee(277, "Anuj Chettiar", 31, "Male", "Product Development", 2012, 35700.0));
+		employeeList.add(new Employee(278, "Chettiar", 39, "Male", "Product Development", 2000, 85700.0));
 		
 		// Real Time Queries On employeeList.,
+		/**
 		// 1.How many male and female employees are there in the organization?
-		Map<String, Long> empCount = employeeList.stream().collect(Collectors.groupingBy(Employee::getGender,Collectors.counting()));
+			Map<String, Long> empCount = employeeList.stream().collect(Collectors.groupingBy(Employee::getGender,Collectors.counting()));
 							System.out.println(empCount);
+		
+		**/
+		// Print the name of all departments in the organization?
+				employeeList.stream().map(Employee::getDepartment).distinct().forEach(System.out::println);
+	
+	
 	}
 
 }
