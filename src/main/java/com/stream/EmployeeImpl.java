@@ -52,13 +52,16 @@ public class EmployeeImpl
 			 								.entrySet()
 			 								.forEach(System.out::println);
 			 					
-		**/
+		
 		// 4. Get the details of highest paid employee in the organization?
 				Employee highestPaidEmp = employeeList.stream()
 														.collect(Collectors.maxBy(Comparator.comparing(Employee::getAge)))
 														.get();
 											System.out.println(highestPaidEmp);
-	
+		**/									
+	   // 5.Get the names of all employees who have joined after 2015?
+							employeeList.stream().filter(emp -> emp.getYearOfJoining() >= 2015).map(Employee::getName).forEach(System.out::println);
+		
 	}
 
 }
