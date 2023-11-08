@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class EmployeeImpl 
@@ -76,8 +77,7 @@ public class EmployeeImpl
 	
 	**/
 	// 8. Get the details of youngest male employee in the product development department?
-							employeeList.parallelStream().filter(emp -> emp.getDepartment().equalsIgnoreCase("Product Development")).sorted().findFirst().ifPresent(System.out::println);
-		
+							employeeList.parallelStream().filter(emp ->emp.getDepartment().equalsIgnoreCase("product development")).min(Comparator.comparingInt(Employee::getAge)).ifPresent(System.out::println);
 		
 	}
 
