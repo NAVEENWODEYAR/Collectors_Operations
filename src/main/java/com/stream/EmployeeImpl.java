@@ -83,10 +83,14 @@ public class EmployeeImpl
 	// 9. Who has the most working experience in the organization?
 							employeeList.parallelStream().sorted(Comparator.comparingInt(Employee::getYearOfJoining)).findFirst().ifPresent(System.out::println);
 	
-	**/
+	
 	// 10. How many male and female employees are there in the sales and marketing team?
 							employeeList.parallelStream().filter(emp -> emp.getDepartment().equalsIgnoreCase("sales and marketing")).collect(Collectors.groupingBy(Employee::getGender,Collectors.counting())).entrySet().forEach(System.out::println);
 							
+	**/
+	// 11. What is the average salary of male and female employees?
+							employeeList.parallelStream().collect(Collectors.groupingBy(Employee::getDepartment,Collectors.averagingDouble(Employee::getSalary))).entrySet().forEach(System.out::println);
+	
 	
 	}
 
