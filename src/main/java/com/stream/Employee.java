@@ -10,7 +10,7 @@ public class Employee
     int yearOfJoining;
     double salary;
     
-    // seters and getters,
+    // setters and getters,
 		public int getId() 
 		{
 			return id;
