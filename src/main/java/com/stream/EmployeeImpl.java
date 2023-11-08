@@ -58,10 +58,15 @@ public class EmployeeImpl
 														.collect(Collectors.maxBy(Comparator.comparing(Employee::getAge)))
 														.get();
 											System.out.println(highestPaidEmp);
-		**/									
+										
 	   // 5.Get the names of all employees who have joined after 2015?
-							employeeList.stream().filter(emp -> emp.getYearOfJoining() >= 2015).map(Employee::getName).forEach(System.out::println);
+							employeeList.stream()
+										.filter(emp -> emp.getYearOfJoining() >= 2015).map(Employee::getName)
+										.forEach(System.out::println);
 		
+	  **/	
+	  // 6. Count the number of employees in each department?
+	  						employeeList.parallelStream().collect(Collectors.groupingBy(Employee::getDepartment,Collectors.counting())).entrySet().forEach(System.out::println);
 	}
 
 }
