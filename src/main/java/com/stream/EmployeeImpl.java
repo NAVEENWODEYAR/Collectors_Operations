@@ -2,6 +2,7 @@ package com.stream;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.DoubleSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -92,7 +93,7 @@ public class EmployeeImpl
 							employeeList.parallelStream().collect(Collectors.groupingBy(Employee::getDepartment,Collectors.averagingDouble(Employee::getSalary))).entrySet().forEach(System.out::println);
 	
 	
-	**/
+	
 	// 12 : List down the names of all employees in each department?
 							Map<String, List<Employee>> empList = employeeList.parallelStream().collect(Collectors.groupingBy(Employee::getDepartment));
 							
@@ -109,6 +110,15 @@ public class EmployeeImpl
 									}
 							}
 	
+	
+	**/
+	// What is the average salary and total salary of the whole organization?
+			DoubleSummaryStatistics salaryStatistics = employeeList.stream().collect(Collectors.summarizingDouble(Employee::getSalary));
+			System.out.println("\n Average salary in the organization:- "+salaryStatistics.getAverage());	
+			System.out.println("\n Maximun salary in the organization:- "+salaryStatistics.getMax());
+			System.out.println("\n Minimum salary in the organization:- "+salaryStatistics.getMin());
+			System.out.println("\n Total salary in the organization:- "+salaryStatistics.getSum());
+			System.out.println("\n Total employess in the organization:- "+salaryStatistics.getSum());
 	
 	}
 
