@@ -1,1 +1,5 @@
-POJO(Plain Old Java Object) - independant java class.
+POJO(Plain Old Java Object) - independent java class.
+Spring -  1. Lightweight, 
+		  2. AOP(Aspect Oriented Programming),
+		  3. IOC(Inversion of Control), 
+		  4. DI(Dependency Injection)
