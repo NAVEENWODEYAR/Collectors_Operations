@@ -84,7 +84,7 @@ public class Employee
 		// default constructor.,
 		public Employee()
 		{
-			
+			super();
 		}
 		
 		// parameterized constructor,
