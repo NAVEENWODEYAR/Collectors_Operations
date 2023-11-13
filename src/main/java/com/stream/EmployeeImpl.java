@@ -13,6 +13,7 @@ public class EmployeeImpl
 
 	public static void main(String[] args) 
 	{
+		// List to store the values.,
 		List<Employee> employeeList = new ArrayList<>();
 		
 		employeeList.add(new Employee(111, "Jiya Brein", 32, "Female", "HR", 2011, 25000.0));
