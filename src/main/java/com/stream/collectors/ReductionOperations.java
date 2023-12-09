@@ -1,5 +1,6 @@
 package com.stream.collectors;
 
+
 public class ReductionOperations 
 {
 	static
@@ -7,9 +8,13 @@ public class ReductionOperations
 		System.out.println("\n Collectors is a final class that extends the Object class");
 	}
 	
+	{System.out.println("\n Static Block");}
+	
 	public static void main(String[] args) 
 	{
-		System.out.println("\n**********\n");
+		System.out.println("\n**********\n"+new ReductionOperations());
+		
+				
 	}
 
 }
